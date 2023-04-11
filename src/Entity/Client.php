@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -44,6 +46,14 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 5, nullable: true)]
     private ?string $cp = null;
+
+    #[ORM\OneToMany(mappedBy: 'idClient', targetEntity: Location::class, orphanRemoval: true)]
+    private Collection $locations;
+
+    public function __construct()
+    {
+        $this->locations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -183,6 +193,36 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCp(?string $cp): self
     {
         $this->cp = $cp;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Location>
+     */
+    public function getLocations(): Collection
+    {
+        return $this->locations;
+    }
+
+    public function addLocation(Location $location): self
+    {
+        if (!$this->locations->contains($location)) {
+            $this->locations->add($location);
+            $location->setIdClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLocation(Location $location): self
+    {
+        if ($this->locations->removeElement($location)) {
+            // set the owning side to null (unless already changed)
+            if ($location->getIdClient() === $this) {
+                $location->setIdClient(null);
+            }
+        }
 
         return $this;
     }

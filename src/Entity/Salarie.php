@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SalarieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -36,6 +38,14 @@ class Salarie implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateMdp = null;
+
+    #[ORM\OneToMany(mappedBy: 'idSalarie', targetEntity: LOG::class)]
+    private Collection $lOGs;
+
+    public function __construct()
+    {
+        $this->lOGs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -139,6 +149,36 @@ class Salarie implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDateMdp(?\DateTimeInterface $dateMdp): self
     {
         $this->dateMdp = $dateMdp;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, LOG>
+     */
+    public function getLOGs(): Collection
+    {
+        return $this->lOGs;
+    }
+
+    public function addLOG(LOG $lOG): self
+    {
+        if (!$this->lOGs->contains($lOG)) {
+            $this->lOGs->add($lOG);
+            $lOG->setIdSalarie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLOG(LOG $lOG): self
+    {
+        if ($this->lOGs->removeElement($lOG)) {
+            // set the owning side to null (unless already changed)
+            if ($lOG->getIdSalarie() === $this) {
+                $lOG->setIdSalarie(null);
+            }
+        }
 
         return $this;
     }
