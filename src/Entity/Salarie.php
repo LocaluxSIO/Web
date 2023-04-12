@@ -42,9 +42,13 @@ class Salarie implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'idSalarie', targetEntity: LOG::class)]
     private Collection $lOGs;
 
+    #[ORM\OneToMany(mappedBy: 'idSalarie', targetEntity: Controle::class)]
+    private Collection $controles;
+
     public function __construct()
     {
         $this->lOGs = new ArrayCollection();
+        $this->controles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -177,6 +181,36 @@ class Salarie implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($lOG->getIdSalarie() === $this) {
                 $lOG->setIdSalarie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Controle>
+     */
+    public function getControles(): Collection
+    {
+        return $this->controles;
+    }
+
+    public function addControle(Controle $controle): self
+    {
+        if (!$this->controles->contains($controle)) {
+            $this->controles->add($controle);
+            $controle->setIdSalarie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeControle(Controle $controle): self
+    {
+        if ($this->controles->removeElement($controle)) {
+            // set the owning side to null (unless already changed)
+            if ($controle->getIdSalarie() === $this) {
+                $controle->setIdSalarie(null);
             }
         }
 
