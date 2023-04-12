@@ -35,8 +35,8 @@ class RegistrationController extends AbstractController
             $user->setPrenom($form->get('prenom')->getData());
             $user->setMail($form->get('mail')->getData());
             $user->setTel($form->get('tel')->getData());
-            $user->setRue($form->get('adresse')->getData());
-            $user->setCp($form->get('codePostal')->getData());
+            $user->setRue($form->get('rue')->getData());
+            $user->setCp($form->get('cp')->getData());
             $user->setVille($form->get('ville')->getData());
 
             $entityManager->persist($user);

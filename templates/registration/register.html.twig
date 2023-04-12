@@ -1,17 +1,60 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Register
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+	<div class="main">
+		<div class="container a-container d-flex flex-column" id="a-container">
+			<h2 class="form_title title">Créer mon compte</h2>
+			{{ form_start(registrationForm, {'attr': {'class': 'form'}}) }}
+			<div class="row mb-3">
+				<div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.nom) }}</div>
+				<div class="col-sm-6">{{ form_row(registrationForm.prenom) }}</div>
+			</div>
+			<div class="row mb-3">
+				{{ form_row(registrationForm.mail) }}
+				{{ form_row(registrationForm.tel) }}
+			</div>
+			<div class="row mb-3">
+				{{ form_row(registrationForm.plainPassword) }}
+				{{ form_row(registrationForm.rue) }}
+			</div>
+			<div class="row mb-3">
+				<div class="col-sm-6 mb-3 mb-sm-0">{{ form_row(registrationForm.ville) }}</div>
+				<div class="col-sm-6">{{ form_row(registrationForm.cp) }}</div>
+			</div>
+			{{ form_row(registrationForm.agreeTerms) }}
+			<button class="form__button button" type="submit">Créer mon compte</button>
+			<hr>
+			{{ form_end(registrationForm) }}
+		</div>
+		{#{% if error %}
+																<div class="alert alert-danger" style="z-index:1000">Une erreur s'est produite :
+																	{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+															{% endif %}#}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.mail) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+		{% if app.user %}
+			<div class="mb-3" style="z-index:1000">
+				Vous êtes connecté avec le compte :
+				{{ app.user.userIdentifier }},
+				<a href="{{ path('app_logout') }}">Me déconnecter</a>
+			</div>
+		{% endif %}
+		<div class="switch" id="switch-cnt">
+			<div class="switch__circle"></div>
+			<div class="switch__circle switch__circle--t"></div>
+			<div class="switch__container" id="switch-c1">
+				<h2 class="switch__title title">Allons-y</h2>
+				<p class="switch__description description">Rentrez vos informations et réservont votre véhicule !</p>
+				<button class="btn switch__button button switch-btn" href="{{ path('app_register') }}">Créer mon compte</button>
+			</div>
+			<div class="switch__container is-hidden" id="switch-c2">
+				<h2 class="switch__title title">Hey !</h2>
+				<p class="switch__description description">Afin de réserver votre véhicule, il vous faut un compte 😉</p>
+				<a class="btn switch__button button switch-btn" href="{{ path('app_login') }}">J'ai déjà un compte</a>
+			</div>
+		</div>
+	</div>
+	<script src="{{ asset('js/login.js')}}"></script>
 {% endblock %}

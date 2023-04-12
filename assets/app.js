@@ -7,7 +7,11 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
-
+//on importe login.scss seulement si on sur la route app_login ou app_register
+if (window.location.pathname === '/login' || window.location.pathname === '/register')
+{
+    import('./styles/login.scss');
+}
 // start the Stimulus application
 import './bootstrap';
 

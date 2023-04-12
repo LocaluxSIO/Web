@@ -20,7 +20,7 @@ class HomeController extends AbstractController
         return $this->redirectToRoute('app_reservation',['id' => $this->getUser()]
         );
     }
-    #[Route('/reservation/{id}', name: 'app_reservation')]
+    #[Route('/reservation', name: 'app_reservation')]
     public function reserver(): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');

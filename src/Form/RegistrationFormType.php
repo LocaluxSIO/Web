@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
-use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -20,28 +20,32 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TypeTextType::class, [
-                'label' => 'Nom',
+            ->add('nom', TextType::class, [
+                'label' => false,
                 'attr' => [
                     'placeholder' => 'Nom',
+                    'class' => 'form__input w-100',
                 ],
             ])
-            ->add('prenom',TypeTextType::class, [
-                    'label' => 'Prénom',
+            ->add('prenom',TextType::class, [
+                'label' => false,
                     'attr' => [
                         'placeholder' => 'Prénom',
+                        'class' => 'form__input w-100',
                     ],
                 ])  
             ->add('mail', EmailType::class, [
-                'label' => 'Email',
+                'label' => false,
                 'attr' => [
                     'placeholder' => 'Email',
+                    'class' => 'form__input w-100',
                 ],
             ])
             ->add('tel', TelType::class, [
-                'label' => 'Téléphone',
+                'label' => false,
                 'attr' => [
                     'placeholder' => 'Téléphone',
+                    'class' => 'form__input w-100',
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
@@ -51,12 +55,19 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Vous devez acceptez nos conditions.',
                     ]),
                 ],
+                'label' => 'J\'accepte les conditions d\'utilisation',
+                'attr' => [
+                    'class' => 'form-check-input',
+                ],
             ])
             ->add('plainPassword', PasswordType::class, [
+                'label' => false,
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => ['autocomplete' => 'new-password',
+                'class' => 'form__input w-100',
+                'placeholder' => 'Mot de Passe',],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Rentrez un mot de passe.',
@@ -70,22 +81,25 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             //on ajoute un groupe d'inputs nommé "Votre Adresse" contenant rue, cp, et ville
-            ->add('rue', TypeTextType::class, [
-                'label' => 'Rue',
+            ->add('rue', TextType::class, [
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Rue',
+                    'placeholder' => 'Adresse Postale (Rue)',
+                    'class' => 'form__input w-100',
                 ],
             ])
-            ->add('cp', TypeTextType::class, [
-                'label' => 'Code Postal',
+            ->add('cp', TextType::class, [
+                'label' => false,
                 'attr' => [
                     'placeholder' => 'Code Postal',
+                    'class' => 'form__input w-100',
                 ],
             ])
-            ->add('ville', TypeTextType::class, [
-                'label' => 'Ville',
+            ->add('ville', TextType::class, [
+                'label' => false,
                 'attr' => [
                     'placeholder' => 'Ville',
+                    'class' => 'form__input w-100',
                 ],
             ])
             ;

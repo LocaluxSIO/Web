@@ -1,42 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Log in!
+{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+	<div class="main">
+		<div
+			class="container b-container" id="b-container">
+			{#on affiche le formulaire de connexion#}
+			<form class="form" id="b-form" method="post">
+				<h2 class="form_title title">Me connecter</h2>
+				<input type="text" value="{{ last_username }}" name="mail" id="inputMail" class="form-control form__input" autocomplete="username" required autofocus placeholder="Email">
+				<input type="password" name="password" id="inputPassword" class="form-control form__input" autocomplete="current-password" required>
+				<input
+				type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+				{#
+																        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+																        See https://symfony.com/doc/current/security/remember_me.html
+																
+																        <div class="checkbox mb-3">
+																            <label>
+																                <input type="checkbox" name="_remember_me"> Remember me
+																            </label>
+																        </div>
+																    #}
+				<a class="form__link">Mot de passe oublié ?</a>
+				<button class="form__button button btn btn-lg btn-primary" type="submit">Me connecter</button>
+			</form>
+		</div>
+		{% if error %}
+			<div class="alert alert-danger" style="z-index:1000">Une erreur s'est produite :
+				{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputMail">Mail</label>
-    <input type="text" value="{{ last_username }}" name="mail" id="inputMail" class="form-control" autocomplete="username" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+		{% if app.user %}
+			<div class="mb-3" style="z-index:1000">
+				Vous êtes connecté avec le compte :
+				{{ app.user.userIdentifier }},
+				<a href="{{ path('app_logout') }}">Me déconnecter</a>
+			</div>
+		{% endif %}
+		<div class="switch" id="switch-cnt">
+			<div class="switch__circle"></div>
+			<div class="switch__circle switch__circle--t"></div>
+			<div class="switch__container" id="switch-c1">
+				<h2 class="switch__title title">Allons-y</h2>
+				<p class="switch__description description">Rentrez vos informations et réservont votre véhicule !</p>
+				<a class="btn switch__button button switch-btn" href="{{ path('app_register') }}">Créer mon compte</a>
+			</div>
+			<div class="switch__container is-hidden" id="switch-c2">
+				<h2 class="switch__title title">Hey !</h2>
+				<p class="switch__description description">Afin de réserver votre véhicule, il vous faut un compte 😉</p>
+				<a class="btn switch__button button switch-btn" href="{{ path('app_register') }}">J'ai déjà un compte</a>
+			</div>
+		</div>
+	</div>
+	<script src="{{ asset('js/login.js')}}"></script>
 {% endblock %}
