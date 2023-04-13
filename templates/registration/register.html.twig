@@ -4,8 +4,20 @@
 {% endblock %}
 
 {% block body %}
+<style>
+body {
+	display: flex;
+	justify-content: center;
+	justify-content: center;
+    align-items: center;
+	width: 100%;
+    height: 100vh;
+	font-size: 12px;
+	background-color: #ecf0f3;
+	color: #a0a5a8;}
+</style>
 	<div class="main">
-		<div class="container a-container d-flex flex-column" id="a-container">
+		<div class="containerlogin a-container d-flex flex-column" id="a-container">
 			<h2 class="form_title title">Créer mon compte</h2>
 			{{ form_start(registrationForm, {'attr': {'class': 'form'}}) }}
 			<div class="row mb-3">
