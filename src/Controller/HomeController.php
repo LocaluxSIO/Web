@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Modele;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,10 +23,15 @@ class HomeController extends AbstractController
         );
     }
     #[Route('/reservation', name: 'app_reservation')]
-    public function reserver(): Response
+    public function reserver(ManagerRegistry $doctrine): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        return $this->render('home/reservations.html.twig', [
+        //on récupère tous les modèles 
+        $modeles = $doctrine->getRepository(Modele::class)->findAll();
+        //on retourne la vue avec les modèles
+        dump($modeles);
+        return $this->render('home/reservation.html.twig', [
+            'modeles' => $modeles,
         ]);
     }
 }

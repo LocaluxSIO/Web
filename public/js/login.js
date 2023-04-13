@@ -41,6 +41,10 @@ let mainF = (e) => {
 //si on est sur la page app_register on déclenche chanageForm
 if (window.location.pathname === '/register')
 {
-    changeForm();
+    //on attends que la page ai fini de charger puis on met un temps de chargement de 5 secondes
+    setTimeout(function(){
+        changeForm();
+    }
+    , 5000)
 }
 window.addEventListener("load", mainF);

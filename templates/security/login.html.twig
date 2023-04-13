@@ -11,7 +11,7 @@
 			<form class="form" id="b-form" method="post">
 				<h2 class="form_title title">Me connecter</h2>
 				<input type="text" value="{{ last_username }}" name="mail" id="inputMail" class="form-control form__input" autocomplete="username" required autofocus placeholder="Email">
-				<input type="password" name="password" id="inputPassword" class="form-control form__input" autocomplete="current-password" required>
+				<input type="password" name="password" id="inputPassword" class="form-control form__input" autocomplete="current-password" placeholder="Mot de passe" required>
 				<input
 				type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 				{#
@@ -32,7 +32,6 @@
 			<div class="alert alert-danger" style="z-index:1000">Une erreur s'est produite :
 				{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
-
 		{% if app.user %}
 			<div class="mb-3" style="z-index:1000">
 				Vous êtes connecté avec le compte :
