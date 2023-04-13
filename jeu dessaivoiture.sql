@@ -9,4 +9,5 @@ INSERT INTO modele VALUES
 (7, 'Tesla', 'Model S Plaid+', 'Electrique', 'Automatique', 'https://cdn.automobile-propre.com/uploads/2021/06/Tesla-Model-S-Plaid-Performance-02.jpg', 300.00, 1100, 1.99),
 (8, 'Bugatti', 'Chiron Pur Sport', 'Essence', 'Automatique', 'https://www.bugatti.com/fileadmin/_processed_/sei/p487/se-image-c8d96241a8eafe4e96d1293526796929.jpg', 1000.00, 1500, 2.3),
 (9, 'Maserati', 'MC20', 'Essence', 'Automatique', 'https://auto.cdn-rivamedia.com/photos/annoncecli/big/maserati-mc20-mc-20-disponible-immediatement-134564083.jpg', 550.00, 630, 2.9),
-(10, 'Mercedes-Benz', 'AMG GT R Roadster', 'Essence', 'Automatique', 'https://carsguide-res.cloudinary.com/image/upload/f_auto%2Cfl_lossy%2Cq_auto%2Ct_default/v1/editorial/2020-Mercedes-AMG-GT-R-1001x565p%20%281%29.JPG', 350.00, 585, 3.6);
+(10, 'Mercedes-Benz', 'AMG GT R Roadster', 'Essence', 'Automatique', 'https://carsguide-res.cloudinary.com/image/upload/f_auto%2Cfl_lossy%2Cq_auto%2Ct_default/v1/editorial/2020-Mercedes-AMG-GT-R-1001x565p%20%281%29.JPG', 350.00, 585, 3.6),
+(11, 'Ford', 'Mustang Shelby', 'Essence', 'Manuel', 'https://img.autosblogmexico.com/2019/01/18/hVoAV2LR/1-8df4.jpg', 370.00, 800, 2.8);

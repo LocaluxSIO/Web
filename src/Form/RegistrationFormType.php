@@ -14,6 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class RegistrationFormType extends AbstractType
 {
@@ -26,6 +27,15 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Nom',
                     'class' => 'form__input w-100',
                 ],
+                'constraints' => array(
+                    new NotBlank(),
+                    new Assert\Regex(
+                        array(
+                            'pattern' => '/^[a-zA-Z]+$/',
+                            'message' => 'Le nom {{value}} n\'est pas valide',
+                        )
+                    ),
+                ),
             ])
             ->add('prenom',TextType::class, [
                 'label' => false,
@@ -33,6 +43,15 @@ class RegistrationFormType extends AbstractType
                         'placeholder' => 'Prénom',
                         'class' => 'form__input w-100',
                     ],
+                    'constraints' => array(
+                        new NotBlank(),
+                        new Assert\Regex(
+                            array(
+                                'pattern' => '/^[a-zA-Z]+$/',
+                                'message' => 'Le prénom {{value}} n\'est pas valide',
+                            )
+                        ),
+                    ),
                 ])  
             ->add('mail', EmailType::class, [
                 'label' => false,
@@ -40,9 +59,27 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Email',
                     'class' => 'form__input w-100',
                 ],
+                'constraints' => array(
+                    new NotBlank(),
+                    new Assert\Regex(
+                        array(
+                            'pattern' => '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/',
+                            'message' => 'L\'adresse email {{ value }} n\'est pas valide'
+                        )
+                    ),
+                ),
             ])
             ->add('tel', TelType::class, [
                 'label' => false,
+                'constraints' => array(
+                    new NotBlank(),
+                    new Assert\Regex(
+                        array(
+                            'pattern' => '/^0[1-9]([-. ]?[0-9]{2}){4}$/',
+                            'message' => 'Ecrivez sous la forme : 0610203040',
+                        )
+                    ),
+                ),
                 'attr' => [
                     'placeholder' => 'Téléphone',
                     'class' => 'form__input w-100',
@@ -87,6 +124,16 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Adresse Postale (Rue)',
                     'class' => 'form__input w-100',
                 ],
+                'constraints' => array(
+                    new NotBlank(),
+                    new Assert\Regex(
+                        array(
+                            //on fait un regex sous la forme "4 rue de la vertonne
+                            'pattern' => '/^[0-9]+[a-zA-Z0-9\s]+$/',
+                            'message' => 'Ecrivez sous la forme : 6 rue des grosses fleurs',
+                        )
+                    ),
+                ),
             ])
             ->add('cp', TextType::class, [
                 'label' => false,
@@ -94,6 +141,15 @@ class RegistrationFormType extends AbstractType
                     'placeholder' => 'Code Postal',
                     'class' => 'form__input w-100',
                 ],
+                'constraints' => array(
+                    new NotBlank(),
+                    new Assert\Regex(
+                        array(
+                            'pattern' => '/^[0-9]{5}$/',
+                            'message' => 'Ecrivez sous la forme : 75000',
+                        )
+                    ),
+                ),
             ])
             ->add('ville', TextType::class, [
                 'label' => false,

@@ -573,6 +573,229 @@
     </div>
   </div>
   <!-- Main Slider End -->
-
 </section>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+	<script>
+	$(window).on("load resize orientationchange change", function () {
+  slider("#browsebymake", 5, 5, 3.5, 2.8);
+  slider("#browsebytype", 5, 5, 3.5, 2.8);
+  slider("#drivenow", 3.6, 3.7, 2.5, 1.3);
+  slider("#testimonial", 2.5, 2.5, 1.5, 1.1);
+
+  function slider(selector, NoItemLg, NoItemLgtomd, NoItemMd, NoItemSm) {
+    var $landingWrapper = $(selector + " " + ".slider-wrapper");
+    var $landingInnerContent = $(selector + " " + ".slider-inner");
+    var sliderContainer = $(selector + " " + ".slider-container");
+
+    var w = window.innerWidth;
+    var c = $("section > .container").innerWidth();
+    //  if ($(window).width() > 768) {
+    //     var transformwidth = (((w-c)/2) + 5);
+    //  }else{
+    //  }
+    var transformwidth = (w - c) / 2 + 10;
+
+    var transform = $(selector + " " + ".item-outer").css(
+      "transform",
+      "translate(" + transformwidth + "px," + 0 + "px)"
+    );
+    // var transform = $(selector + " " + ".slider-container").css("max-width", transformwidth);
+    // var NumberOfItem = No_slider;
+    //Lower the time faster the speed
+
+    var timeoffset = 80;
+    var mobile_device = 761;
+    var NumberOfItem;
+
+    if (
+      NoItemLg !== null ||
+      NoItemSm !== null ||
+      NoItemMd !== null ||
+      NoItemLgtomd !== null
+    ) {
+      if ($(window).width() <= mobile_device) {
+        // console.log("enter");
+        var NumberOfItem = NoItemSm;
+        // console.log("sm" + NumberOfItem);
+        $landingWrapper.addClass(selector + " " + "slider-overflow-auto");
+        $landingWrapper.removeClass(selector + " " + "slider-overflow-visible");
+      } else if ($(window).width() > 1024 && $(window).width() < 1640) {
+        var NumberOfItem = NoItemLgtomd;
+        // console.log("md" + NumberOfItem);
+        $landingWrapper.addClass(selector + " " + "slider-overflow-auto");
+        $landingWrapper.removeClass(selector + " " + "slider-overflow-visible");
+      } else if ($(window).width() > 761 && $(window).width() < 1024) {
+        var NumberOfItem = NoItemMd;
+        // console.log("md" + NumberOfItem);
+        $landingWrapper.addClass(selector + " " + "slider-overflow-auto");
+        $landingWrapper.removeClass(selector + " " + "slider-overflow-visible");
+      } else {
+        var NumberOfItem = NoItemLg;
+        // console.log("large" + NumberOfItem);
+      }
+    }
+
+    //Arrow variable declaration
+    $leftarrow = $(selector + " " + ".arrow-left");
+    $rightarrow = $(selector + " " + ".arrow-right");
+
+    // Dynamic Get width of outer div
+    var ContentWidth = $landingWrapper.width();
+
+    // Dynamic Get width of box/item
+    var Itemwidth = ContentWidth / NumberOfItem;
+
+    // console.log(Itemwidth ,ContentWidth , NumberOfItem );
+
+    var Item = $(selector + " " + ".item-outer").css("width", Itemwidth);
+    // console.log(Item);
+
+    var slides = document.querySelectorAll(selector + " " + ".item-outer");
+    var numSlides = slides.length; // count total number of slide
+    // console.log(numSlides);
+
+    var OwterWrraperWidth = $landingInnerContent.css(
+      "width",
+      Itemwidth * numSlides
+    );
+
+    // Create a function for events
+
+    function clickleft() {
+      var left = TweenMax.to($landingWrapper, 20, {
+        scrollTo: {
+          x: "-=" + ContentWidth * 3
+        }
+      });
+    }
+
+    function clickright() {
+      var right = TweenMax.to($landingWrapper, 20, {
+        scrollTo: {
+          x: "+=" + ContentWidth * 3
+        }
+      });
+    }
+
+    function right() {
+      var right = TweenMax.to($landingWrapper, timeoffset, {
+        scrollTo: {
+          x: "+=3000" + ContentWidth * 3
+        }
+      });
+    }
+
+    function left() {
+      var left = TweenMax.to($landingWrapper, timeoffset, {
+        scrollTo: {
+          x: "-=" + ContentWidth * 3
+        }
+      });
+    }
+
+    function right() {
+      var right = TweenMax.to($landingWrapper, timeoffset, {
+        scrollTo: {
+          x: "+=" + ContentWidth * 3
+        }
+      });
+    }
+
+    function stop() {
+      var stop = TweenMax.to($landingWrapper, timeoffset, {
+        scrollTo: {
+          x: "+=0"
+        }
+      });
+    }
+
+    // Call events
+
+    $leftarrow.on("mouseover mouseup", function (e) {
+      left();
+    });
+    $leftarrow.on("mouseout", function (e) {
+      stop();
+    });
+    $leftarrow.on("mousedown", function (e) {
+      clickleft();
+    });
+    $rightarrow.on("mouseover mouseup", function (e) {
+      right();
+    });
+    $rightarrow.on("mousedown", function (e) {
+      clickright();
+    });
+    $rightarrow.on("mouseout", function (e) {
+      stop();
+    });
+
+    // console.log(NumberOfItem,numSlides);
+    if (NumberOfItem <script numSlides && $(window).width() >= 768) {
+      $(selector + " " + ".arrow-main").css("display", "block");
+      // console.log("arrow block");
+    } else {
+      $(selector + " " + ".arrow-main").css("display", "none");
+      // console.log("arrow none");
+    }
+
+    $landingWrapper.scroll(function () {
+      if ($(this).scrollLeft() > 0) {
+        $(selector + " " + ".arrow-left").addClass("show-left-arrow");
+
+        // if ($(window).width() >= mobile_device) {
+        //     sliderContainer.addClass("mw-100 p-0");
+        // }
+      } else {
+        $(selector + " " + ".arrow-left").removeClass("show-left-arrow");
+        // if ($(window).width() >= mobile_device) {
+        //     sliderContainer.removeClass("mw-100 p-0");
+        // }
+      }
+      var scrollwidth =
+        $landingInnerContent.width() - $landingWrapper.width() + transformwidth;
+      // console.log(scrollwidth);
+      if (
+        $(this).scrollLeft() >
+        $landingInnerContent.width() -
+          $landingWrapper.width() +
+          transformwidth -
+          10
+      ) {
+        $(selector + " " + ".arrow-right").addClass("hide-right-arrow");
+      } else {
+        $(selector + " " + ".arrow-right").removeClass("hide-right-arrow");
+      }
+
+      // if ($(window).width() >= mobile_device) {
+      //     if ($(this).scrollLeft() === 0) {
+      //         $landingWrapper.addClass("slider-overflow-visible");
+      //         $landingWrapper.removeClass("slider-overflow-auto");
+
+      //     } else {
+      //         $landingWrapper.removeClass("slider-overflow-visible");
+      //         $landingWrapper.addClass("slider-overflow-auto");
+      //     }
+      // }
+    });
+  }
+});
+
+$(window).on("load resize orientationchange", function () {
+  DriveNowImg();
+});
+
+function DriveNowImg() {
+  var originalimgwidth = 510;
+  var originalimgheight = 304;
+  var selector = ".drive-now .car-slider-box .car-title-img";
+
+  var pimg = $(selector).width();
+  var dyheight = pimg * (originalimgheight / originalimgwidth);
+  var final = $(selector).css("height", dyheight);
+}
+DriveNowImg();
+</script>
 {% endblock %}

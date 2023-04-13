@@ -121,146 +121,590 @@
 				<p class="fs-5 text-body-secondary">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
 			</div>
 		</header>
-
 		<main>
-			<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-				<div class="col">
-					<div class="card mb-4 rounded-3 shadow-sm">
-						<div class="card-header py-3">
-							<h4 class="my-0 fw-normal">Free</h4>
-						</div>
-						<div class="card-body">
-							<h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4">
-								<li>10 users included</li>
-								<li>2 GB of storage</li>
-								<li>Email support</li>
-								<li>Help center access</li>
-							</ul>
-							<button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card mb-4 rounded-3 shadow-sm">
-						<div class="card-header py-3">
-							<h4 class="my-0 fw-normal">Pro</h4>
-						</div>
-						<div class="card-body">
-							<h1 class="card-title pricing-card-title">$15<small class="text-body-secondary fw-light">/mo</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4">
-								<li>20 users included</li>
-								<li>10 GB of storage</li>
-								<li>Priority email support</li>
-								<li>Help center access</li>
-							</ul>
-							<button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card mb-4 rounded-3 shadow-sm border-primary">
-						<div class="card-header py-3 text-bg-primary border-primary">
-							<h4 class="my-0 fw-normal">Enterprise</h4>
-						</div>
-						<div class="card-body">
-							<h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mo</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4">
-								<li>30 users included</li>
-								<li>15 GB of storage</li>
-								<li>Phone and email support</li>
-								<li>Help center access</li>
-							</ul>
-							<button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
-						</div>
-					</div>
-				</div>
-			</div>
+			<style>
+.drive-now {
+  padding: 40px 0;
+}
+.drive-now h2 {
+  font-size: 35px;
+}
+.drive-now .car-slider-box {
+  background: #212121;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.car-slider-box .car-title-img {
+  position: relative;
+  background-color: #fff;
+  height: 424px;
+}
+.car-slider-box .car-title-img:before {
+  position: absolute;
+  top: 0;
+  left: -3px;
+  right: 0;
+  /* background-image: url(../images/image-header-shadow.svg); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: 1;
+  content: "";
+  display: inline-block;
+  width: 102%;
+  height: 100px;
+  pointer-events: none;
+}
+.car-slider-box .car-title-img a {
+  display: block;
+  height: 100% !important;
+}
+.drive-now .car-slider-box .car-title-img img {
+  object-fit: cover;
+  object-position: bottom;
+  width: 100%;
+  height: 100%;
+  background: #212121;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.drive-now .car-slider-box .car-rent-button span.Car-comp {
+  font-size: 12px;
+}
+.drive-now .car-slider-box .car-rent-button span.Car-mdl {
+  font-size: 20px;
+}
+.drive-now .car-slider-box .car-rent-button span.car-price span {
+  font-size: 24px;
+}
+.slider-wrapper {
+  width: 100%;
 
-			<h2 class="display-6 text-center mb-4">Compare plans</h2>
+  margin: 0 auto;
+  height: auto;
 
-			<div class="table-responsive">
-				<table class="table text-center">
-					<thead>
-						<tr>
-							<th style="width: 34%;"></th>
-							<th style="width: 22%;">Free</th>
-							<th style="width: 22%;">Pro</th>
-							<th style="width: 22%;">Enterprise</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row" class="text-start">Public</th>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row" class="text-start">Private</th>
-							<td></td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-						</tr>
-					</tbody>
+  padding: 0;
 
-					<tbody>
-						<tr>
-							<th scope="row" class="text-start">Permissions</th>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row" class="text-start">Sharing</th>
-							<td></td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row" class="text-start">Unlimited members</th>
-							<td></td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row" class="text-start">Extra security</th>
-							<td></td>
-							<td></td>
-							<td>
-								<svg class="bi" width="24" height="24"><use xlink:href="#check"/></svg>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+  overflow: auto;
+  /*  border: 1px solid #333;*/
+  /*  cursor: pointer;*/
+  /* transition: all ease 0.5s;*/
+}
+
+.slider-wrapper,
+.slider-inner {
+  display: flex;
+}
+.slider-container {
+  transition: all ease 0.5s;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  position: relative;
+}
+
+.slider-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.slider-wrapper {
+  scrollbar-width: none;
+}
+
+/*.landing-inner-content {
+    background: #fff;
+    height: 280px;
+  }*/
+
+.item-outer {
+  float: left;
+  overflow: hidden;
+  padding: 0 10px;
+}
+.drive-now .car-slider-box .car-rent-button {
+  border-radius: 10px;
+  padding: 15px 20px;
+}
+.car-rent-text {
+  display: flex;
+  text-align: left;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.car-rent-text h5 {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.car-slider-box .car-rent-button span {
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "HelveticaNeueMedium";
+  line-height: 25px;
+}
+.car-slider-box .car-rent-button span.Car-comp {
+  font-size: 16px;
+  font-family: "HelveticaNeueMedium";
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.car-slider-box .car-rent-button span {
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "HelveticaNeueMedium";
+  line-height: 25px;
+}
+.car-slider-box .car-rent-button span.car-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.car-slider-box .car-rent-button span {
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "HelveticaNeueMedium";
+  line-height: 25px;
+}
+.car-slider-box .car-rent-button span.car-price span {
+  font-size: 24px;
+  text-align: right;
+  transform: translateY(1px);
+  line-height: 22px;
+}
+.car-slider-box .car-rent-button span small {
+  font-size: 15px;
+  line-height: 30px;
+  opacity: 0.6;
+  line-height: 18px;
+  transform: translateY(1px);
+}
+.arrow-main {
+  display: flex;
+  justify-content: space-between;
+  width: 98%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  pointer-events: all;
+}
+.arrow-main button {
+  pointer-events: all;
+  width: 54px;
+  height: 54px;
+  border: 1px solid #fff;
+  border-radius: 100%;
+  cursor: pointer;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  z-index: 99;
+}
+.drive-now .arrow-main > button {
+  top: 35%;
+  position: absolute;
+}
+.arrow-main button .fa {
+  font-size: 34px;
+}
+.arrow-left {
+  left: 20px;
+}
+.arrow-right {
+  right: 20px;
+}
+.show-left-arrow,
+.show-right-arrow {
+  opacity: 1;
+  display: block !important;
+  /* pointer-events: all !important; */
+}
+</style>
+<section class="drive-now text-center position-relative">
+  <div class="custom-container">
+    <div class="section-header">
+      <h2>Drive Now</h2>
+      <h5>Available for Pick-up &amp; Delivery Now</h5>
+    </div>
+  </div>
+  <div class="drive-now-slider-main slider-main " id="drivenow">
+    <!-- Main Slider Start -->
+
+    <!--    <div class="owl-carousel-main common-owl-carousel"> -->
+    <div class="container slider-container">
+      <div class="slider-wrapper slider-overflow-auto">
+        <div class="slider-inner" style="width: 4045.6px;">
+          <!-- Car Slider box Start -->
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/bmw/convertible/m4-convertible/134">
+                                                            <h5>BMW M4 Convertible</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/bmw/convertible/m4-convertible/134" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/BMW M4 Rental Los Angeles 1-47226.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/BMW M4 Rental Los Angeles 1-47226.jpg" alt="BMW M4 Rental Los Angeles">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      BMW</span>
+                    <span class="Car-mdl">
+                      M4 Convertible</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="discounted_rate">$275</span> <small> <del>$335</del> / day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/mclaren/supercar/720s/136">
+                                                            <h5>McLaren 720S</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/mclaren/supercar/720s/136" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/McLaren 720S Rental 1-36363.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/McLaren 720S Rental 1-36363.jpg" alt="Red McLaren 720S">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      McLaren</span>
+                    <span class="Car-mdl">
+                      720S</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$1750</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/lamborghini/supercar/huracan-performante/143">
+                                                            <h5>Lamborghini Huracan Performante</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/lamborghini/supercar/huracan-performante/143" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/fdbfb6a8505b30997e09202438cd3ecc.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/fdbfb6a8505b30997e09202438cd3ecc.jpg" alt="White Lamborghini Huracan Performante">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Lamborghini</span>
+                    <span class="Car-mdl">
+                      Huracan Performante</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$1750</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/ferrari/supercar/812-superfast/133">
+                                                            <h5>Ferrari 812 Superfast</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/ferrari/supercar/812-superfast/133" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Ferrari 812 Superfast Rental 1-64964.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Ferrari 812 Superfast Rental 1-64964.jpg" alt="ferrari 812 superfast rental los angeles">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Ferrari</span>
+                    <span class="Car-mdl">
+                      812 Superfast</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$1990</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/lamborghini/supercar/aventador-sv-roadster/81">
+                                                            <h5>Lamborghini Aventador SV Roadster</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/lamborghini/supercar/aventador-sv-roadster/81" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Lamborghini Aventador SV Roadster Rental 1-6166.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Lamborghini Aventador SV Roadster Rental 1-6166.jpg" alt="Rent Lamborghini Los Angeles">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Lamborghini</span>
+                    <span class="Car-mdl">
+                      Aventador SV Roadster</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$2890</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/mercedes/sedan-4-door/benz-s550/47">
+                                                            <h5>Mercedes Benz S550</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/mercedes/sedan-4-door/benz-s550/47" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Mercedes-Benz S550 Sedan Rental Los Angeles 1-97938.jpeg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Mercedes-Benz S550 Sedan Rental Los Angeles 1-97938.jpeg" alt="Benz S550">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Mercedes</span>
+                    <span class="Car-mdl">
+                      Benz S550</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$390</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/bmw/coupe-sports/i8-blue/100">
+                                                            <h5>BMW i8 Blue</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/bmw/coupe-sports/i8-blue/100" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/BMW i8 Falcon Luxury Exotic Car Rental Los Angeles 1-85818.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/BMW i8 Falcon Luxury Exotic Car Rental Los Angeles 1-85818.jpg" alt="BMW i8 Rental Los Angeles">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      BMW</span>
+                    <span class="Car-mdl">
+                      i8 Blue</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$590</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/rolls-royce/ultra-luxury/wraith/49">
+                                                            <h5>Rolls-Royce Wraith</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/rolls-royce/ultra-luxury/wraith/49" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Rolls-Royce Rental Los Angeles 1-69965.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Rolls-Royce Rental Los Angeles 1-69965.jpg" alt="Rolls Royce Wraith Rental Los Angeles">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Rolls-Royce</span>
+                    <span class="Car-mdl">
+                      Wraith</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$1390</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/bmw/convertible/i8/149">
+                                                            <h5>BMW i8</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/bmw/convertible/i8/149" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/afe6471705ad8adcbe444069ae7b721a.jpeg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/afe6471705ad8adcbe444069ae7b721a.jpeg" alt="5">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      BMW</span>
+                    <span class="Car-mdl">
+                      i8</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="discounted_rate">$300</span> <small> <del>$250</del> / day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/mercedes/suv/amg-g63-white/89">
+                                                            <h5>Mercedes AMG G63 White</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/mercedes/suv/amg-g63-white/89" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/3e7db6455020b997ae5499e6dd631c2d.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/3e7db6455020b997ae5499e6dd631c2d.jpg" alt="G Wagon Rental Los Angeles">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Mercedes</span>
+                    <span class="Car-mdl">
+                      AMG G63 White</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$590</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/tesla/sedan-4-door/model-s/84">
+                                                            <h5>Tesla Model S</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/tesla/sedan-4-door/model-s/84" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Tesla Rental Los Angeles 1-47885.JPG" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Tesla Rental Los Angeles 1-47885.JPG" alt="Tesla Rental Los Angeles">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Tesla</span>
+                    <span class="Car-mdl">
+                      Model S</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$495</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/tesla/suv/model-x-p100d/115">
+                                                            <h5>Tesla Model X P100D</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/tesla/suv/model-x-p100d/115" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Tesla Model X Rental 1-95104.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Tesla Model X Rental 1-95104.jpg" alt="Tesla Model X Rental">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Tesla</span>
+                    <span class="Car-mdl">
+                      Model X P100D</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$790</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="item-outer" style="transform: translate(10px, 0px); width: 311.2px;">
+            <div class="car-slider-box">
+              <!-- <a
+                                                            href="http://php71.indianic.com/falconcarrental/ca/los-angeles/rolls-royce/ultra-luxury/dawn-blackout/113">
+                                                            <h5>Rolls-Royce Dawn Blackout</h5>
+                                                        </a> -->
+              <div class="car-title-img" style="height: 173.571px;">
+                <a class="drive_now_a1" href="http://php71.indianic.com/falconcarrental/ca/los-angeles/rolls-royce/ultra-luxury/dawn-blackout/113" style="height: 277px;">
+                  <img class="my_lazy_img2" data-src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Blackout Rolls Royce Dawn Rental 1-25374.jpg" src="http://php71.indianic.com/falconcarphase2/public/storage/storage/app/public/vehicle/main/Blackout Rolls Royce Dawn Rental 1-25374.jpg" alt="Blackout Rolls Royce Dawn">
+                </a>
+              </div>
+              <div class="car-rent-button d-flex align-items-center justify-content-between">
+                <div class="car-rent-text">
+                  <h5>
+                    <span class="Car-comp">
+                      Rolls-Royce</span>
+                    <span class="Car-mdl">
+                      Dawn Blackout</span>
+                  </h5>
+                  <span class="car-price">
+                    <span class="non-discounted_rate">$1590</span><small> per day</small> </span>
+                </div>
+                <!-- <a href="" class="btn btn-primary btn-drive-now">Drive now</a> -->
+              </div>
+            </div>
+          </div>
+          <!-- Car Slider box End -->
+        </div>
+      </div>
+      <!-- arrow -->
+      <div class="arrow-main" style="display: block;">
+        <button class="arrow-left">
+          <span class="fa fa-angle-left" aria-hidden="true"></span>
+        </button>
+        <button class="arrow-right">
+          <span class="fa fa-angle-right" aria-hidden="true"></span>
+        </button>
+      </div>
+      <!-- arrow -->
+    </div>
+  </div>
+  <!-- Main Slider End -->
+</section>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+	<script>
+	//on fait défiler le carousel quand on clique sur les boutons de classe arrow-right et arrow-left
+	$('.arrow-right').click(function() {
+		$('.car-slider').slick('slickNext');
+	});
+	$('.arrow-left').click(function() {
+		$('.car-slider').slick('slickPrev');
+	});
+	
+	</script>
 		</main>
 
 		<footer class="pt-4 my-md-5 pt-md-5 border-top">
@@ -329,4 +773,229 @@
 			</div>
 		</footer>
 	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+	<script>
+	$(window).on("load resize orientationchange change", function () {
+  slider("#browsebymake", 5, 5, 3.5, 2.8);
+  slider("#browsebytype", 5, 5, 3.5, 2.8);
+  slider("#drivenow", 3.6, 3.7, 2.5, 1.3);
+  slider("#testimonial", 2.5, 2.5, 1.5, 1.1);
+
+  function slider(selector, NoItemLg, NoItemLgtomd, NoItemMd, NoItemSm) {
+    var $landingWrapper = $(selector + " " + ".slider-wrapper");
+    var $landingInnerContent = $(selector + " " + ".slider-inner");
+    var sliderContainer = $(selector + " " + ".slider-container");
+
+    var w = window.innerWidth;
+    var c = $("section > .container").innerWidth();
+    //  if ($(window).width() > 768) {
+    //     var transformwidth = (((w-c)/2) + 5);
+    //  }else{
+    //  }
+    var transformwidth = (w - c) / 2 + 10;
+
+    var transform = $(selector + " " + ".item-outer").css(
+      "transform",
+      "translate(" + transformwidth + "px," + 0 + "px)"
+    );
+    // var transform = $(selector + " " + ".slider-container").css("max-width", transformwidth);
+    // var NumberOfItem = No_slider;
+    //Lower the time faster the speed
+
+    var timeoffset = 80;
+    var mobile_device = 761;
+    var NumberOfItem;
+
+    if (
+      NoItemLg !== null ||
+      NoItemSm !== null ||
+      NoItemMd !== null ||
+      NoItemLgtomd !== null
+    ) {
+      if ($(window).width() <= mobile_device) {
+        // console.log("enter");
+        var NumberOfItem = NoItemSm;
+        // console.log("sm" + NumberOfItem);
+        $landingWrapper.addClass(selector + " " + "slider-overflow-auto");
+        $landingWrapper.removeClass(selector + " " + "slider-overflow-visible");
+      } else if ($(window).width() > 1024 && $(window).width() < 1640) {
+        var NumberOfItem = NoItemLgtomd;
+        // console.log("md" + NumberOfItem);
+        $landingWrapper.addClass(selector + " " + "slider-overflow-auto");
+        $landingWrapper.removeClass(selector + " " + "slider-overflow-visible");
+      } else if ($(window).width() > 761 && $(window).width() < 1024) {
+        var NumberOfItem = NoItemMd;
+        // console.log("md" + NumberOfItem);
+        $landingWrapper.addClass(selector + " " + "slider-overflow-auto");
+        $landingWrapper.removeClass(selector + " " + "slider-overflow-visible");
+      } else {
+        var NumberOfItem = NoItemLg;
+        // console.log("large" + NumberOfItem);
+      }
+    }
+
+    //Arrow variable declaration
+    $leftarrow = $(selector + " " + ".arrow-left");
+    $rightarrow = $(selector + " " + ".arrow-right");
+
+    // Dynamic Get width of outer div
+    var ContentWidth = $landingWrapper.width();
+
+    // Dynamic Get width of box/item
+    var Itemwidth = ContentWidth / NumberOfItem;
+
+    // console.log(Itemwidth ,ContentWidth , NumberOfItem );
+
+    var Item = $(selector + " " + ".item-outer").css("width", Itemwidth);
+    // console.log(Item);
+
+    var slides = document.querySelectorAll(selector + " " + ".item-outer");
+    var numSlides = slides.length; // count total number of slide
+    // console.log(numSlides);
+
+    var OwterWrraperWidth = $landingInnerContent.css(
+      "width",
+      Itemwidth * numSlides
+    );
+
+    // Create a function for events
+
+    function clickleft() {
+      var left = TweenMax.to($landingWrapper, 20, {
+        scrollTo: {
+          x: "-=" + ContentWidth * 3
+        }
+      });
+    }
+
+    function clickright() {
+      var right = TweenMax.to($landingWrapper, 20, {
+        scrollTo: {
+          x: "+=" + ContentWidth * 3
+        }
+      });
+    }
+
+    function right() {
+      var right = TweenMax.to($landingWrapper, timeoffset, {
+        scrollTo: {
+          x: "+=3000" + ContentWidth * 3
+        }
+      });
+    }
+
+    function left() {
+      var left = TweenMax.to($landingWrapper, timeoffset, {
+        scrollTo: {
+          x: "-=" + ContentWidth * 3
+        }
+      });
+    }
+
+    function right() {
+      var right = TweenMax.to($landingWrapper, timeoffset, {
+        scrollTo: {
+          x: "+=" + ContentWidth * 3
+        }
+      });
+    }
+
+    function stop() {
+      var stop = TweenMax.to($landingWrapper, timeoffset, {
+        scrollTo: {
+          x: "+=0"
+        }
+      });
+    }
+
+    // Call events
+
+    $leftarrow.on("mouseover mouseup", function (e) {
+      left();
+    });
+    $leftarrow.on("mouseout", function (e) {
+      stop();
+    });
+    $leftarrow.on("mousedown", function (e) {
+      clickleft();
+    });
+    $rightarrow.on("mouseover mouseup", function (e) {
+      right();
+    });
+    $rightarrow.on("mousedown", function (e) {
+      clickright();
+    });
+    $rightarrow.on("mouseout", function (e) {
+      stop();
+    });
+
+    // console.log(NumberOfItem,numSlides);
+    if (NumberOfItem <script numSlides && $(window).width() >= 768) {
+      $(selector + " " + ".arrow-main").css("display", "block");
+      // console.log("arrow block");
+    } else {
+      $(selector + " " + ".arrow-main").css("display", "none");
+      // console.log("arrow none");
+    }
+
+    $landingWrapper.scroll(function () {
+      if ($(this).scrollLeft() > 0) {
+        $(selector + " " + ".arrow-left").addClass("show-left-arrow");
+
+        // if ($(window).width() >= mobile_device) {
+        //     sliderContainer.addClass("mw-100 p-0");
+        // }
+      } else {
+        $(selector + " " + ".arrow-left").removeClass("show-left-arrow");
+        // if ($(window).width() >= mobile_device) {
+        //     sliderContainer.removeClass("mw-100 p-0");
+        // }
+      }
+      var scrollwidth =
+        $landingInnerContent.width() - $landingWrapper.width() + transformwidth;
+      // console.log(scrollwidth);
+      if (
+        $(this).scrollLeft() >
+        $landingInnerContent.width() -
+          $landingWrapper.width() +
+          transformwidth -
+          10
+      ) {
+        $(selector + " " + ".arrow-right").addClass("hide-right-arrow");
+      } else {
+        $(selector + " " + ".arrow-right").removeClass("hide-right-arrow");
+      }
+
+      // if ($(window).width() >= mobile_device) {
+      //     if ($(this).scrollLeft() === 0) {
+      //         $landingWrapper.addClass("slider-overflow-visible");
+      //         $landingWrapper.removeClass("slider-overflow-auto");
+
+      //     } else {
+      //         $landingWrapper.removeClass("slider-overflow-visible");
+      //         $landingWrapper.addClass("slider-overflow-auto");
+      //     }
+      // }
+    });
+  }
+});
+
+$(window).on("load resize orientationchange", function () {
+  DriveNowImg();
+});
+
+function DriveNowImg() {
+  var originalimgwidth = 510;
+  var originalimgheight = 304;
+  var selector = ".drive-now .car-slider-box .car-title-img";
+
+  var pimg = $(selector).width();
+  var dyheight = pimg * (originalimgheight / originalimgwidth);
+  var final = $(selector).css("height", dyheight);
+}
+DriveNowImg();
+</script>
 {% endblock %}

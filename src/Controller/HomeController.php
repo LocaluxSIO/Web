@@ -24,7 +24,7 @@ class HomeController extends AbstractController
     public function reserver(): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        return $this->render('home/test.html.twig', [
+        return $this->render('home/reservations.html.twig', [
         ]);
     }
 }
