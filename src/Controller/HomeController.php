@@ -34,4 +34,15 @@ class HomeController extends AbstractController
             'modeles' => $modeles,
         ]);
     }
+    #[Route('/test', name: 'app_test')]
+    public function test(ManagerRegistry $doctrine): Response
+    {
+        //on récupère tous les modèles 
+        $modeles = $doctrine->getRepository(Modele::class)->findAll();
+        //on retourne la vue avec les modèles
+        dump($modeles);
+        return $this->render('home/testpage.html.twig', [
+            'modeles' => $modeles,
+        ]);
+    }
 }
