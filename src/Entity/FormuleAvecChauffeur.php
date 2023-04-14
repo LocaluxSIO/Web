@@ -18,7 +18,6 @@ class FormuleAvecChauffeur extends Formule
         $this->locationAvecChauffeurs = new ArrayCollection();
     }
 
-
     /**
      * @return Collection<int, LocationAvecChauffeur>
      */
