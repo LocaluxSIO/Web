@@ -10,27 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: FormuleAvecChauffeurRepository::class)]
 class FormuleAvecChauffeur extends Formule
 {
-    #[ORM\Column(length: 255)]
-    private ?string $nomChauffeur = null;
-
     #[ORM\OneToMany(mappedBy: 'idFormule', targetEntity: LocationAvecChauffeur::class)]
     private Collection $locationAvecChauffeurs;
 
     public function __construct()
     {
         $this->locationAvecChauffeurs = new ArrayCollection();
-    }
-
-    public function getNomChauffeur(): ?string
-    {
-        return $this->nomChauffeur;
-    }
-
-    public function setNomChauffeur(string $nomChauffeur): self
-    {
-        $this->nomChauffeur = $nomChauffeur;
-
-        return $this;
     }
 
     /**

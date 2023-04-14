@@ -16,6 +16,10 @@ class LocationAvecChauffeur extends Location
     #[ORM\JoinColumn(nullable: false)]
     private ?FormuleAvecChauffeur $idFormule = null;
 
+    #[ORM\ManyToOne(inversedBy: 'locationAvecChauffeurs')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Chauffeur $idChauffeur = null;
+
     public function getLieuDestination(): ?string
     {
         return $this->lieuDestination;
@@ -36,6 +40,18 @@ class LocationAvecChauffeur extends Location
     public function setIdFormule(?FormuleAvecChauffeur $idFormule): self
     {
         $this->idFormule = $idFormule;
+
+        return $this;
+    }
+
+    public function getIdChauffeur(): ?Chauffeur
+    {
+        return $this->idChauffeur;
+    }
+
+    public function setIdChauffeur(?Chauffeur $idChauffeur): self
+    {
+        $this->idChauffeur = $idChauffeur;
 
         return $this;
     }
