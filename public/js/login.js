@@ -45,6 +45,6 @@ if (window.location.pathname === '/register')
     setTimeout(function(){
         changeForm();
     }
-    , 5000)
+    , 1000)
 }
 window.addEventListener("load", mainF);

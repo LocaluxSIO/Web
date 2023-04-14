@@ -28,10 +28,22 @@ class HomeController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         //on récupère tous les modèles 
         $modeles = $doctrine->getRepository(Modele::class)->findAll();
-        //on retourne la vue avec les modèles
-        dump($modeles);
+        return $this->render('home/testpage.html.twig', [
+            'modeles' => $modeles,
+        ]);
+    }
+    #[Route('/reservation/{id}', name: 'app_reservation_id')]
+    public function reserverId(ManagerRegistry $doctrine, int $id): Response
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        //on récupère tous les modèles 
+        $modeles = $doctrine->getRepository(Modele::class)->findAll();
+        //on récupère toutes les formules du type sansChauffeur
+        $formulesSansChauffeur = $doctrine->getRepository(LocationSansChauffeur::class)->findAll();
+        dump($formulesSansChauffeur);
         return $this->render('home/reservation.html.twig', [
             'modeles' => $modeles,
+            'id' => $id,
         ]);
     }
     #[Route('/test', name: 'app_test')]
@@ -39,8 +51,6 @@ class HomeController extends AbstractController
     {
         //on récupère tous les modèles 
         $modeles = $doctrine->getRepository(Modele::class)->findAll();
-        //on retourne la vue avec les modèles
-        dump($modeles);
         return $this->render('home/testpage.html.twig', [
             'modeles' => $modeles,
         ]);
